@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   
+    <h1>Filmothéques</h1>
+    <div id="wrapper">
+        <div id ="page-wrapper">
+            <div id="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        Films
+                    </div>
+                    <div class="panel-body">
+                        <div class ="table-responsive">
+                            <a href="{{ path('film_new') }}" class="btn btn-default new col-lg-1" role="button">Nouveau Film</a>
+                            <table class ="table table-striped">
+                                <thead>
+                                    <tr>                        
+                                        <th>Titre</th>
+                                        <th>Genre</th>
+                                        <th>Description</th>
+                                        <th>Acteur</th>
+                                        <th>Note</th>                                     
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for film in films %}
+                                     <tr>   
+                                        
+                                        <td>{{film.Titre}}</td>
+                                        {% for genre in film.fkGenre %}
+                                        <td>{{genre.genre}}</td>
+                                        {%endfor%}
+                                        <td>{{film.Description}}</td>
+                                       
+                                        {% for acteur in film.fkActeur %}
+                                            
+                                        <td>{{acteur.prenom}} {{acteur.nom}}</td>
+                                         {%endfor%}
+                                        <td>{{film.Note}}/5</td>    
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
