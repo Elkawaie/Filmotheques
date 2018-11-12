@@ -29,7 +29,7 @@ class Realisateur
     private $prenom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="fkRealisateur")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="fkRealisateur", cascade={"persist", "remove", "refresh"})
      */
     private $fkFilm;
 

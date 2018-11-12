@@ -24,7 +24,8 @@ class FilmType extends AbstractType
                 'choice_label' => function ($acteur){
                     return $acteur->getNom();
                 },
-                
+                'multiple' => true,
+                'expanded' => false,     
                 'mapped' => false,
             ))
             ->add('fkGenre', EntityType::class, array(
@@ -32,6 +33,8 @@ class FilmType extends AbstractType
                 'choice_label' => function($genre){
                     return $genre->getGenre();
                 },
+                'multiple' => true,
+                'expanded' => false,
                 'mapped' => false,
             ))
             ->add('fkRealisateur', EntityType::class, array(
@@ -39,6 +42,8 @@ class FilmType extends AbstractType
                 'choice_label' => function ($realisateur){
                     return $realisateur->getNom();
                 },
+                'multiple' => true,
+                'expanded' => false,
                 'mapped' => false,
             ))
         ;

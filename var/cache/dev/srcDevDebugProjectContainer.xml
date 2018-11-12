@@ -1949,14 +1949,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -4416,6 +4408,13 @@
         <argument key="film" type="service" id=".errored..service_locator.u3l54oY.App\Entity\Film"/>
       </argument>
     </service>
+    <service id=".service_locator.jH_iOFY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="acteurRepo" type="service" id="App\Repository\ActeurRepository"/>
+        <argument key="film" type="service" id=".errored..service_locator.jH_iOFY.App\Entity\Film"/>
+      </argument>
+    </service>
     <service id=".service_locator.XfVLqWt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4440,7 +4439,7 @@
         <argument key="realisateur" type="service" id=".errored..service_locator.WehOvbw.App\Entity\Realisateur"/>
       </argument>
     </service>
-    <service id=".service_locator.u456kOz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.1q4rrfa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActeurController::delete" type="service" id=".service_locator.xkmHvPK"/>
@@ -4448,7 +4447,7 @@
         <argument key="App\Controller\ActeurController::index" type="service" id=".service_locator.98aaGn8"/>
         <argument key="App\Controller\ActeurController::show" type="service" id=".service_locator.xkmHvPK"/>
         <argument key="App\Controller\FilmController::delete" type="service" id=".service_locator.u3l54oY"/>
-        <argument key="App\Controller\FilmController::edit" type="service" id=".service_locator.u3l54oY"/>
+        <argument key="App\Controller\FilmController::edit" type="service" id=".service_locator.jH_iOFY"/>
         <argument key="App\Controller\FilmController::index" type="service" id=".service_locator.DYPBHGU"/>
         <argument key="App\Controller\FilmController::show" type="service" id=".service_locator.u3l54oY"/>
         <argument key="App\Controller\GenreController::delete" type="service" id=".service_locator.IZGImX4"/>
@@ -4465,7 +4464,7 @@
         <argument key="App\Controller\ActeurController:index" type="service" id=".service_locator.98aaGn8"/>
         <argument key="App\Controller\ActeurController:show" type="service" id=".service_locator.xkmHvPK"/>
         <argument key="App\Controller\FilmController:delete" type="service" id=".service_locator.u3l54oY"/>
-        <argument key="App\Controller\FilmController:edit" type="service" id=".service_locator.u3l54oY"/>
+        <argument key="App\Controller\FilmController:edit" type="service" id=".service_locator.jH_iOFY"/>
         <argument key="App\Controller\FilmController:index" type="service" id=".service_locator.DYPBHGU"/>
         <argument key="App\Controller\FilmController:show" type="service" id=".service_locator.u3l54oY"/>
         <argument key="App\Controller\GenreController:delete" type="service" id=".service_locator.IZGImX4"/>
@@ -4723,7 +4722,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.u456kOz"/>
+      <argument type="service" id=".service_locator.1q4rrfa"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -4815,6 +4814,7 @@
     </service>
     <service id=".errored..service_locator.xkmHvPK.App\Entity\Acteur" class="App\Entity\Acteur"/>
     <service id=".errored..service_locator.u3l54oY.App\Entity\Film" class="App\Entity\Film"/>
+    <service id=".errored..service_locator.jH_iOFY.App\Entity\Film" class="App\Entity\Film"/>
     <service id=".errored..service_locator.IZGImX4.App\Entity\Genre" class="App\Entity\Genre"/>
     <service id=".errored..service_locator.WehOvbw.App\Entity\Realisateur" class="App\Entity\Realisateur"/>
     <service id=".service_locator.HKoUR8q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5141,7 +5141,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.u456kOz"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.1q4rrfa"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~weWq67z" public="false"/>

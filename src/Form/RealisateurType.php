@@ -13,9 +13,9 @@ class RealisateurType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('prenom')
-            ->add('fkFilm')
-        ;
+            ->add('prenom');
+            
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -34,17 +34,17 @@ class Film
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", inversedBy="fkFilm")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Acteur", inversedBy="fkFilm", cascade={"persist", "remove", "refresh"})
      */
     private $fkActeur;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="fkFilm")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="fkFilm", cascade={"persist", "remove", "refresh"})
      */
     private $fkGenre;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Realisateur", inversedBy="fkFilm")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Realisateur", inversedBy="fkFilm", cascade={"persist", "remove", "refresh"})
      */
     private $fkRealisateur;
 

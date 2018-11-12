@@ -29,7 +29,7 @@ class Acteur
     private $prenom;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="fkActeur")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="fkActeur", cascade={"persist", "remove", "refresh"})
      */
     private $fkFilm;
 
@@ -38,6 +38,13 @@ class Acteur
         $this->fkFilm = new ArrayCollection();
     }
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

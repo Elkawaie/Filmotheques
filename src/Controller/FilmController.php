@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Film;
+use App\Entity\Genre;
+use App\Entity\Realisateur;
+use App\Entity\Acteur;
 use App\Form\FilmType;
 use App\Repository\FilmRepository;
+use App\Repository\ActeurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,19 +39,42 @@ class FilmController extends AbstractController
             
       
         if ($form->isSubmitted() && $form->isValid()) {
-           $fkacteur = $form->get('fkActeur');
-           $acteur = $fkacteur->getData();
-           
+        $fkActeur = $form->get('fkActeur');
+        $formResultActeur = $fkActeur->getData(); 
+        for($i =0 ; $i <= count($formResultActeur); $i++){
+               if ($formResultActeur[$i] !== null){
+                $em = $this->getDoctrine()->getManager();
+                $idActeur = $formResultActeur[$i]->getId();
+                //On Utilise l'entity manager de doctrine instancié plus haut dans la variable $em, pour crée des objets Acteur pour chaque id d'acteur
+                $acteur = $em->getRepository(Acteur::class)->find($idActeur);
+                $film->addFkActeur($acteur);
+               }    
+            } 
+            
            $fkgenre = $form->get('fkGenre');
-           $genre = $fkgenre->getData();
+           $formResultGenre = $fkgenre->getData();       
+           for($i = 0 ; $i <= count($formResultGenre); $i++){
+              if ($formResultGenre[$i] !== null ){
+                $em = $this->getDoctrine()->getManager();
+                $idGenre = $formResultGenre[$i]->getId();      
+                $genre = $em->getRepository(Genre::class)->find($idGenre);
+                $film->addFkGenre($genre);
+               }
+           }
+           
            
            $fkrealisateur = $form->get('fkRealisateur');
-           $realisateur = $fkrealisateur->getData();
-           
-           $film->addFkActeur($acteur);
-           $film->addFkGenre($genre);
-           $film->addFkRealisateur($realisateur);
-
+           $formResultRealisateur = $fkrealisateur->getData();
+            for($i = 0 ; $i <= count($formResultRealisateur); $i++){
+              if ($formResultRealisateur[$i] !== null ){
+                $em = $this->getDoctrine()->getManager();
+                $idRealisateur = $formResultRealisateur[$i]->getId();      
+                $realisateur = $em->getRepository(Realisateur::class)->find($idRealisateur);
+                $film->addFkRealisateur($realisateur);
+               }
+           }
+     
+            dump($film);
             $em = $this->getDoctrine()->getManager();
             $em->persist($film);
             
@@ -73,14 +100,27 @@ class FilmController extends AbstractController
     /**
      * @Route("/{id}/edit", name="film_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Film $film): Response
+    public function edit(Request $request, Film $film, ActeurRepository $acteurRepo): Response
     {
         $form = $this->createForm(FilmType::class, $film);
         $form->handleRequest($request);
-
+       
         if ($form->isSubmitted() && $form->isValid()) {
+            //On initialise ici la variable fkActeur et formResult qui contiendra les donnée de fk Acteur transmi dans le form
+            $fkActeur = $form->get('fkActeur');
+            $formResult = $fkActeur->getData(); 
+            // on boucle sur le tableau de formResult pour pouvoir crée different objet Acteur a partir de leur ID
+            for($i =0 ; $i <= count($formResult); $i++){
+               if ($formResult[$i] !== null){
+                $em = $this->getDoctrine()->getManager();
+                $idActeur = $formResult[$i]->getId();
+                //On Utilise l'entity manager de doctrine instancié plus haut dans la variable $em, pour crée des objets Acteur pour chaque id d'acteur
+                $acteur = $em->getRepository(Acteur::class)->find($idActeur);
+                $film->addFkActeur($acteur);
+               }    
+            } 
+            //Doctrine met à jour tout seul en ignorant les valeur déja éxistante 
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('film_index', ['id' => $film->getId()]);
         }
 

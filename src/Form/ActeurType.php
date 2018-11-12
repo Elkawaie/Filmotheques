@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Acteur;
+use App\Entity\Film;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class ActeurType extends AbstractType
 {
@@ -14,7 +16,7 @@ class ActeurType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('fkFilm')
+
         ;
     }
 
