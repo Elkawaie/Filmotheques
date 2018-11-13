@@ -5,9 +5,12 @@
         <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}
            
-            <link href="{{asset('css/bootstrap.min.css')}}"rel='stylesheet'/>
-            <link href="{{asset('css/dataTables.bootstrap.css')}}"rel='stylesheet'/>
-            <link href="{{asset('css/dataTables.responsive.css')}}"rel='stylesheet'/>
+            <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}"rel='stylesheet'/>
+            <link href="{{asset('vendor/metisMenu/metisMenu.min.css')}}"rel='stylesheet'/>
+            <link href="{{asset('vendor/datatables-plugins/dataTables.bootstrap.css')}}"rel='stylesheet'/>
+            <link href="{{asset('vendor/datatables-responsive/dataTables.responsive.css')}}"rel='stylesheet'/>
+            <link href="{{asset('dist/css/sb-admin-2.css')}}"rel='stylesheet'/>
+            <link href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}"rel='stylesheet'/>
             <link href="{{asset('https://fonts.googleapis.com/css?family=Patrick+Hand')}}" rel="stylesheet">
              <link href="{{asset('css/main.css')}}"rel='stylesheet'/>
         {% endblock %}
@@ -15,10 +18,19 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}
-        <script src="{{asset('js/jquery.js')}}"></script>
-        <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('js/dataTables.responsive.js')}}"></script>
-        <script src="{{asset('js/dataTables.bootstrap.min.js')}}"></script>
+        <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('vendor/metisMenu/metisMenu.min.js')}}"></script>
+        <script src="{{asset('vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('vendor/datatables-plugins/dataTables.bootstrap.min.js')}}"></script>
+        <script src="{{asset('vendor/datatables-responsive/dataTables.responsive.js')}}"></script>
+        <script src="{{asset('dist/js/sb-admin-2.js')}}"></script>
+        <script>
+            $(document).ready( function () {
+                $('#FilmTable').DataTable();
+            } );
+        </script>
+
         {% endblock %}
     </body>
 </html>

@@ -20,10 +20,21 @@ h1{
     border:none !important;
 }
 
+.panel-heading{
+    font-family: 'Patrick Hand', cursive;
+    font-size: 32pt;
+    display: flex;
+    box-shadow: none;
+    justify-content: center;
+    color:#B6C649 !important;
+    border:none !important;
+}
+
 .btn-default{
     background-color: #d16666 !important;
     border-color: #d16666;
     color: #B6C649;
+    margin-bottom: 8pt;
 }
 
 .btn-default:hover{
@@ -31,9 +42,26 @@ h1{
     border-color: #B6C649 !important;
     color: #d16666 !important;
 }
-.table-responsive{
+
+.dataTables_length{
+    color: #d16666 !important;
+}
+
+.dataTables_length label select {
+    border-color: black !important;
+}
+
+.dataTables_filter {
+    color: #d16666 !important;
+}
+
+.dataTables_filter label input{
+    border-color: black !important;
+}
+.panel-body{
     display:flex;
     flex-direction: column;
+    
 }
 .new{
     align-self: flex-end;
@@ -42,4 +70,8 @@ h1{
 
 tr, th{
     color:#d16666; 
+}
+
+.dataTables_info{
+    color: #d16666;
 }

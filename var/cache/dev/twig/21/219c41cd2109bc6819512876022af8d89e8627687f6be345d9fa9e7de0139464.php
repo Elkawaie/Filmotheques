@@ -54,23 +54,23 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
     <h1>Filmothéques</h1>
     <div id=\"wrapper\">
         <div id =\"page-wrapper\">
-            <div id=\"row\">
+            <div class=\"row\">
                 <div class=\"col-lg-12\">
                     <div class=\"panel panel-default\">
+                        <div class=\"panel-heading\">
                         Films
+                        </div>
                     </div>
-                    <div class=\"panel-body\">
-                        <div class =\"table-responsive\">
+                    <div class=\"panel-body\">                 
                             <a href=\"";
-        // line 15
+        // line 16
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("film_new");
         echo "\" class=\"btn btn-default new col-lg-1\" role=\"button\">Nouveau Film</a>
-                            <table class =\"table table-striped\">
+                           <table width=\"100%\" class=\"table table-striped table-bordered table-hover\" id=\"FilmTable\">
                                 <thead>
                                     <tr>                        
                                         <th>Titre</th>
-                                        <th>Genre</th>
-                                        <th>Description</th>
+                                        <th>Genre</th>                              
                                         <th>Acteur</th>
                                         <th>Note</th>                                     
                                     </tr>
@@ -103,30 +103,23 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['genre'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 34
-            echo "                                        <td>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["film"], "Description", array()), "html", null, true);
-            echo "</td>
-                                       
-                                        ";
-            // line 36
+            echo "                                        <td> ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["film"], "fkActeur", array()));
             foreach ($context['_seq'] as $context["_key"] => $context["acteur"]) {
-                // line 37
-                echo "                                            
-                                        <td>";
-                // line 38
+                echo " ";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["acteur"], "prenom", array()), "html", null, true);
                 echo " ";
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["acteur"], "nom", array()), "html", null, true);
-                echo "</td>
-                                         ";
+                echo " | ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['acteur'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 40
-            echo "                                        <td>";
+            echo "</td>
+                                         
+                                        <td>";
+            // line 36
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["film"], "Note", array()), "html", null, true);
             echo "/5</td>    
                                         
@@ -136,10 +129,11 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['film'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 40
         echo "                                </tbody>
                             </table>
                             
+                        </div>
                         </div>
                     </div>
                 </div>   
@@ -168,7 +162,7 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
 
     public function getDebugInfo()
     {
-        return array (  140 => 44,  129 => 40,  119 => 38,  116 => 37,  112 => 36,  106 => 34,  97 => 32,  93 => 31,  89 => 30,  85 => 28,  81 => 27,  66 => 15,  53 => 4,  44 => 3,  15 => 1,);
+        return array (  133 => 40,  123 => 36,  106 => 34,  97 => 32,  93 => 31,  89 => 30,  85 => 28,  81 => 27,  67 => 16,  53 => 4,  44 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -180,20 +174,20 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
     <h1>Filmothéques</h1>
     <div id=\"wrapper\">
         <div id =\"page-wrapper\">
-            <div id=\"row\">
+            <div class=\"row\">
                 <div class=\"col-lg-12\">
                     <div class=\"panel panel-default\">
+                        <div class=\"panel-heading\">
                         Films
+                        </div>
                     </div>
-                    <div class=\"panel-body\">
-                        <div class =\"table-responsive\">
+                    <div class=\"panel-body\">                 
                             <a href=\"{{ path('film_new') }}\" class=\"btn btn-default new col-lg-1\" role=\"button\">Nouveau Film</a>
-                            <table class =\"table table-striped\">
+                           <table width=\"100%\" class=\"table table-striped table-bordered table-hover\" id=\"FilmTable\">
                                 <thead>
                                     <tr>                        
                                         <th>Titre</th>
-                                        <th>Genre</th>
-                                        <th>Description</th>
+                                        <th>Genre</th>                              
                                         <th>Acteur</th>
                                         <th>Note</th>                                     
                                     </tr>
@@ -206,12 +200,8 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
                                         {% for genre in film.fkGenre %}
                                         <td>{{genre.genre}}</td>
                                         {%endfor%}
-                                        <td>{{film.Description}}</td>
-                                       
-                                        {% for acteur in film.fkActeur %}
-                                            
-                                        <td>{{acteur.prenom}} {{acteur.nom}}</td>
-                                         {%endfor%}
+                                        <td> {% for acteur in film.fkActeur %} {{acteur.prenom}} {{acteur.nom}} | {%endfor%}</td>
+                                         
                                         <td>{{film.Note}}/5</td>    
                                         
                                     </tr>
@@ -219,6 +209,7 @@ class __TwigTemplate_2c4b60bfad733b7f03acd096df95bfc2ca5f17e432ddf816174bec252bd
                                 </tbody>
                             </table>
                             
+                        </div>
                         </div>
                     </div>
                 </div>   
