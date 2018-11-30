@@ -62,6 +62,18 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         switch ($pathinfo) {
+            case '/acteur/nouveau':
+                // acteur_nouveau
+                if (($request = $request ?? $this->request ?: $this->createRequest($pathinfo)) && $request->isXmlHttpRequest()) {
+                    return array('_route' => 'acteur_nouveau', '_controller' => 'App\\Controller\\ActeurController::ajoutAjax');
+                }
+                break;
+            case '/film/nouveau':
+                // film_nouveau
+                if (($request = $request ?? $this->request ?: $this->createRequest($pathinfo)) && $request->isXmlHttpRequest()) {
+                    return array('_route' => 'film_nouveau', '_controller' => 'App\\Controller\\FilmController::AjoutFilmAjax');
+                }
+                break;
             default:
                 $routes = array(
                     '/acteur/' => array(array('_route' => 'acteur_index', '_controller' => 'App\\Controller\\ActeurController::index'), null, array('GET' => 0), null),
@@ -79,12 +91,12 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/_profiler/phpinfo' => array(array('_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'), null, null, null),
                     '/_profiler/open' => array(array('_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'), null, null, null),
                 );
-
+    
                 if (!isset($routes[$pathinfo])) {
                     break;
                 }
                 list($ret, $requiredHost, $requiredMethods, $requiredSchemes) = $routes[$pathinfo];
-
+    
                 $hasRequiredScheme = !$requiredSchemes || isset($requiredSchemes[$context->getScheme()]);
                 if ($requiredMethods && !isset($requiredMethods[$canonicalMethod]) && !isset($requiredMethods[$requestMethod])) {
                     if ($hasRequiredScheme) {
@@ -96,7 +108,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     $allowSchemes += $requiredSchemes;
                     break;
                 }
-
+    
                 return $ret;
         }
 
@@ -166,15 +178,15 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             343 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
                             353 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
                         );
-
+            
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
-
+            
                         foreach ($vars as $i => $v) {
                             if (isset($matches[1 + $i])) {
                                 $ret[$v] = $matches[1 + $i];
                             }
                         }
-
+            
                         $hasRequiredScheme = !$requiredSchemes || isset($requiredSchemes[$context->getScheme()]);
                         if ($requiredMethods && !isset($requiredMethods[$canonicalMethod]) && !isset($requiredMethods[$requestMethod])) {
                             if ($hasRequiredScheme) {
@@ -186,7 +198,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             $allowSchemes += $requiredSchemes;
                             break;
                         }
-
+            
                         return $ret;
                 }
 

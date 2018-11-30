@@ -28,19 +28,19 @@ class __TwigTemplate_32cb44a3e103915ce676ebc910d1dced38ba940d2058778cc2c2046ff55
         // line 1
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 1, $this->source); })()), 'form_start');
         echo "
-    ";
+";
         // line 2
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 2, $this->source); })()), 'widget');
         echo "
-    <button class=\"btn\">";
-        // line 3
-        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new Twig_Error_Runtime('Variable "button_label" does not exist.', 3, $this->source); })()), "Save")) : ("Save")), "html", null, true);
-        echo "</button>
-";
+<div class=\"col-sm-10\"></div>
+<button class=\"btn btn-primary\">";
         // line 4
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 4, $this->source); })()), 'form_end');
-        echo "
+        echo twig_escape_filter($this->env, (((isset($context["button_label"]) || array_key_exists("button_label", $context))) ? (_twig_default_filter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new Twig_Error_Runtime('Variable "button_label" does not exist.', 4, $this->source); })()), "Enregistrer")) : ("Enregistrer")), "html", null, true);
+        echo "</button>
+</div>
 ";
+        // line 6
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 6, $this->source); })()), 'form_end');
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -61,15 +61,16 @@ class __TwigTemplate_32cb44a3e103915ce676ebc910d1dced38ba940d2058778cc2c2046ff55
 
     public function getDebugInfo()
     {
-        return array (  41 => 4,  37 => 3,  33 => 2,  29 => 1,);
+        return array (  43 => 6,  38 => 4,  33 => 2,  29 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class=\"btn\">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
-", "film/_form.html.twig", "D:\\projet\\Filmotheques\\templates\\film\\_form.html.twig");
+{{ form_widget(form) }}
+<div class=\"col-sm-10\"></div>
+<button class=\"btn btn-primary\">{{ button_label|default('Enregistrer') }}</button>
+</div>
+{{ form_end(form) }}", "film/_form.html.twig", "D:\\projet\\Filmotheques\\templates\\film\\_form.html.twig");
     }
 }

@@ -34,26 +34,65 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>";
-        // line 5
-        $this->displayBlock('title', $context, $blocks);
-        echo "</title>
-        ";
+        <title>
+            ";
         // line 6
+        $this->displayBlock('title', $context, $blocks);
+        // line 7
+        echo "        </title>
+        ";
+        // line 8
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 17
+        // line 19
         echo "    </head>
     <body>
         ";
-        // line 19
+        // line 21
         $this->displayBlock('body', $context, $blocks);
-        // line 20
-        echo "        ";
+        // line 22
+        echo "
+        ";
+        // line 23
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
-        echo "    </body>
-</html>
-";
+        // line 24
+        echo "
+      
+        <script src=\"";
+        // line 26
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 27
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/js/bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 28
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/metisMenu/metisMenu.min.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 29
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables/js/jquery.dataTables.min.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 30
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-plugins/dataTables.bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 31
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-responsive/dataTables.responsive.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 32
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/js/sb-admin-2.js"), "html", null, true);
+        echo "\"></script>
+
+        <script>
+            \$(document).ready(function () {
+                \$('#FilmTable').DataTable();
+            });
+        </script>
+    </body>
+</html>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -62,7 +101,7 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 
     }
 
-    // line 5
+    // line 6
     public function block_title($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -79,7 +118,7 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 
     }
 
-    // line 6
+    // line 8
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -88,40 +127,40 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 7
-        echo "           
-            <link href=\"";
-        // line 8
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
-            <link href=\"";
         // line 9
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/metisMenu/metisMenu.min.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
+        echo "
             <link href=\"";
         // line 10
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-plugins/dataTables.bootstrap.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/css/bootstrap.min.css"), "html", null, true);
+        echo "\" rel='stylesheet'/>
             <link href=\"";
         // line 11
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-responsive/dataTables.responsive.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/metisMenu/metisMenu.min.css"), "html", null, true);
+        echo "\" rel='stylesheet'/>
             <link href=\"";
         // line 12
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/css/sb-admin-2.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-plugins/dataTables.bootstrap.css"), "html", null, true);
+        echo "\" rel='stylesheet'/>
             <link href=\"";
         // line 13
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/font-awesome/css/font-awesome.min.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-responsive/dataTables.responsive.css"), "html", null, true);
+        echo "\" rel='stylesheet'/>
             <link href=\"";
         // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/css/sb-admin-2.css"), "html", null, true);
+        echo "\" rel='stylesheet'/>
+            <link href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/font-awesome/css/font-awesome.min.css"), "html", null, true);
+        echo "\" rel='stylesheet'/>
+            <link href=\"";
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Patrick+Hand"), "html", null, true);
         echo "\" rel=\"stylesheet\">
-             <link href=\"";
-        // line 15
+            <link href=\"";
+        // line 17
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/main.css"), "html", null, true);
-        echo "\"rel='stylesheet'/>
+        echo "\" rel='stylesheet'/>
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -131,7 +170,7 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 
     }
 
-    // line 19
+    // line 21
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -148,7 +187,7 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 
     }
 
-    // line 20
+    // line 23
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -157,41 +196,6 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 21
-        echo "        <script src=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/jquery/jquery.min.js"), "html", null, true);
-        echo "\"></script>
-        <script src=\"";
-        // line 22
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/bootstrap/js/bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
-        <script src=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/metisMenu/metisMenu.min.js"), "html", null, true);
-        echo "\"></script>
-        <script src=\"";
-        // line 24
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables/js/jquery.dataTables.min.js"), "html", null, true);
-        echo "\"></script>
-        <script src=\"";
-        // line 25
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-plugins/dataTables.bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
-        <script src=\"";
-        // line 26
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("vendor/datatables-responsive/dataTables.responsive.js"), "html", null, true);
-        echo "\"></script>
-        <script src=\"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/js/sb-admin-2.js"), "html", null, true);
-        echo "\"></script>
-        <script>
-            \$(document).ready( function () {
-                \$('#FilmTable').DataTable();
-            } );
-        </script>
-
-        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -205,9 +209,14 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  186 => 27,  182 => 26,  178 => 25,  174 => 24,  170 => 23,  166 => 22,  161 => 21,  152 => 20,  135 => 19,  123 => 15,  119 => 14,  115 => 13,  111 => 12,  107 => 11,  103 => 10,  99 => 9,  95 => 8,  92 => 7,  83 => 6,  66 => 5,  54 => 35,  51 => 20,  49 => 19,  45 => 17,  43 => 6,  39 => 5,  33 => 1,);
+        return array (  191 => 23,  174 => 21,  162 => 17,  158 => 16,  154 => 15,  150 => 14,  146 => 13,  142 => 12,  138 => 11,  134 => 10,  131 => 9,  122 => 8,  105 => 6,  86 => 32,  82 => 31,  78 => 30,  74 => 29,  70 => 28,  66 => 27,  62 => 26,  58 => 24,  56 => 23,  53 => 22,  51 => 21,  47 => 19,  45 => 8,  42 => 7,  40 => 6,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -216,22 +225,27 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}{% endblock %}</title>
+        <title>
+            {% block title %}{% endblock %}
+        </title>
         {% block stylesheets %}
-           
-            <link href=\"{{asset('vendor/bootstrap/css/bootstrap.min.css')}}\"rel='stylesheet'/>
-            <link href=\"{{asset('vendor/metisMenu/metisMenu.min.css')}}\"rel='stylesheet'/>
-            <link href=\"{{asset('vendor/datatables-plugins/dataTables.bootstrap.css')}}\"rel='stylesheet'/>
-            <link href=\"{{asset('vendor/datatables-responsive/dataTables.responsive.css')}}\"rel='stylesheet'/>
-            <link href=\"{{asset('dist/css/sb-admin-2.css')}}\"rel='stylesheet'/>
-            <link href=\"{{asset('vendor/font-awesome/css/font-awesome.min.css')}}\"rel='stylesheet'/>
+
+            <link href=\"{{asset('vendor/bootstrap/css/bootstrap.min.css')}}\" rel='stylesheet'/>
+            <link href=\"{{asset('vendor/metisMenu/metisMenu.min.css')}}\" rel='stylesheet'/>
+            <link href=\"{{asset('vendor/datatables-plugins/dataTables.bootstrap.css')}}\" rel='stylesheet'/>
+            <link href=\"{{asset('vendor/datatables-responsive/dataTables.responsive.css')}}\" rel='stylesheet'/>
+            <link href=\"{{asset('dist/css/sb-admin-2.css')}}\" rel='stylesheet'/>
+            <link href=\"{{asset('vendor/font-awesome/css/font-awesome.min.css')}}\" rel='stylesheet'/>
             <link href=\"{{asset('https://fonts.googleapis.com/css?family=Patrick+Hand')}}\" rel=\"stylesheet\">
-             <link href=\"{{asset('css/main.css')}}\"rel='stylesheet'/>
+            <link href=\"{{asset('css/main.css')}}\" rel='stylesheet'/>
         {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}
+
+        {% block javascripts %}{% endblock %}
+
+      
         <script src=\"{{asset('vendor/jquery/jquery.min.js')}}\"></script>
         <script src=\"{{asset('vendor/bootstrap/js/bootstrap.min.js')}}\"></script>
         <script src=\"{{asset('vendor/metisMenu/metisMenu.min.js')}}\"></script>
@@ -239,15 +253,13 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
         <script src=\"{{asset('vendor/datatables-plugins/dataTables.bootstrap.min.js')}}\"></script>
         <script src=\"{{asset('vendor/datatables-responsive/dataTables.responsive.js')}}\"></script>
         <script src=\"{{asset('dist/js/sb-admin-2.js')}}\"></script>
-        <script>
-            \$(document).ready( function () {
-                \$('#FilmTable').DataTable();
-            } );
-        </script>
 
-        {% endblock %}
+        <script>
+            \$(document).ready(function () {
+                \$('#FilmTable').DataTable();
+            });
+        </script>
     </body>
-</html>
-", "base.html.twig", "D:\\projet\\Filmotheques\\templates\\base.html.twig");
+</html>", "base.html.twig", "D:\\projet\\Filmotheques\\templates\\base.html.twig");
     }
 }

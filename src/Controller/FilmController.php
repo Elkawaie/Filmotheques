@@ -90,6 +90,71 @@ class FilmController extends AbstractController
     }
 
     /**
+     * @Route("/nouveau", name="film_nouveau", condition="request.isXmlHttpRequest()")
+     */
+    public function AjoutFilmAjax(Request $request): Response
+    {
+        $film = new Film();
+        $form = $this->createForm(FilmType::class, $film, array(
+            'action' => $this->generateUrl($request->get('_route'))
+        ));
+        
+        $form->handleRequest($request);
+            
+      
+        if ($form->isSubmitted() && $form->isValid()) {
+        $fkActeur = $form->get('fkActeur');
+        $formResultActeur = $fkActeur->getData(); 
+        for($i =0 ; $i <= count($formResultActeur); $i++){
+               if ($formResultActeur[$i] !== null){
+                $em = $this->getDoctrine()->getManager();
+                $idActeur = $formResultActeur[$i]->getId();
+                //On Utilise l'entity manager de doctrine instancié plus haut dans la variable $em, pour crée des objets Acteur pour chaque id d'acteur
+                $acteur = $em->getRepository(Acteur::class)->find($idActeur);
+                $film->addFkActeur($acteur);
+               }    
+            } 
+            
+           $fkgenre = $form->get('fkGenre');
+           $formResultGenre = $fkgenre->getData();       
+           for($i = 0 ; $i <= count($formResultGenre); $i++){
+              if ($formResultGenre[$i] !== null ){
+                $em = $this->getDoctrine()->getManager();
+                $idGenre = $formResultGenre[$i]->getId();      
+                $genre = $em->getRepository(Genre::class)->find($idGenre);
+                $film->addFkGenre($genre);
+               }
+           }
+           
+           
+           $fkrealisateur = $form->get('fkRealisateur');
+           $formResultRealisateur = $fkrealisateur->getData();
+            for($i = 0 ; $i <= count($formResultRealisateur); $i++){
+              if ($formResultRealisateur[$i] !== null ){
+                $em = $this->getDoctrine()->getManager();
+                $idRealisateur = $formResultRealisateur[$i]->getId();      
+                $realisateur = $em->getRepository(Realisateur::class)->find($idRealisateur);
+                $film->addFkRealisateur($realisateur);
+               }
+           }
+     
+            dump($film);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($film);
+            
+            $em->flush();
+
+            return new Response('Yeah ! c\'tout bon nique sa mére !');
+        }
+
+        return $this->render('film/new.html.twig', [
+            'film' => $film,
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+    /**
      * @Route("/{id}", name="film_show", methods="GET")
      */
     public function show(Film $film): Response

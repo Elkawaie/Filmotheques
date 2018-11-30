@@ -10,6 +10,14 @@ h1{
    font-family: 'Patrick Hand', cursive;
 }
 
+h2{
+    color:#d16666;
+    display: flex;
+    font-size: 32pt;
+    justify-content:center;
+    font-family: 'Patrick Hand', cursive;
+}
+
 .panel-default{
     font-family: 'Patrick Hand', cursive;
     font-size: 32pt;
@@ -30,14 +38,23 @@ h1{
     border:none !important;
 }
 
-.btn-default{
+.btn-default, .btn-primary{
     background-color: #d16666 !important;
     border-color: #d16666;
     color: #B6C649;
     margin-bottom: 8pt;
 }
 
-.btn-default:hover{
+.btn-ajout{
+    border:solid 1px#d16666;
+    color:#d16666;
+}
+
+.btn-ajout:hover{
+    color:white;
+}
+
+.btn-default:hover, .btn-primary:hover{
     background-color: #B6C649 !important;
     border-color: #B6C649 !important;
     color: #d16666 !important;
@@ -69,9 +86,59 @@ h1{
 
 
 tr, th{
-    color:#d16666; 
+    color:#d16666 !important; 
 }
+
+
 
 .dataTables_info{
     color: #d16666;
+}
+/**********
+Css des Modals Formulaire
+***********/
+
+.modal-header{
+    border:none !important;
+}
+
+.modal-body{
+    color:#d16666;
+}
+
+.modal-footer{
+    border:none;
+}
+
+.modal-header button span{
+    color:white !important;
+    text-shadow: none !important;
+}
+
+#acteur, #film{
+    color: #d16666;  
+}
+
+#acteur div input, #film div input{
+   background-color: #B6C649 !important;
+   border-color:#d16666;
+}
+
+#acteur div label, #film div label{
+    font-size: 12pt;
+    margin-right: 8pt;
+}
+
+#film div textarea{
+    background-color: #B6C649 !important;
+    border-color:#d16666;
+}
+
+.titreActeur, .titreGenre, .titreReal{
+    border-bottom: 2px solid #B6C649;
+}
+
+#film_fkActeur input, #film_fkGenre input, #film_fkRealisateur input{
+    
+    margin-right: 12pt;
 }

@@ -1,51 +1,125 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   
+
     <h1>Filmothéques</h1>
     <div id="wrapper">
-        <div id ="page-wrapper">
+        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        Films
+                            Films
                         </div>
                     </div>
-                    <div class="panel-body">                 
-                            <a href="{{ path('film_new') }}" class="btn btn-default new col-lg-1" role="button">Nouveau Film</a>
-                           <table width="100%" class="table table-striped table-bordered table-hover" id="FilmTable">
-                                <thead>
-                                    <tr>                        
-                                        <th>Titre</th>
-                                        <th>Genre</th>                              
-                                        <th>Acteur</th>
-                                        <th>Note</th>                                     
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for film in films %}
-                                     <tr>   
-                                        
+
+                    <div class="panel-body">
+                        <a class="btn btn-default new col-lg-1" data-toggle="modal" data-target="#exampleModal">
+                            Nouveau Film
+                        </a>
+                        <table width="100%" class="table table-striped table-bordered table-hover" id="FilmTable">
+                            <thead>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Genre</th>
+                                    <th>Acteur</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for film in films %}
+                                    <tr>
+
                                         <td>{{film.Titre}}</td>
                                         {% for genre in film.fkGenre %}
-                                        <td>{{genre.genre}}</td>
-                                        {%endfor%}
-                                        <td> {% for acteur in film.fkActeur %} {{acteur.prenom}} {{acteur.nom}} | {%endfor%}</td>
-                                         
-                                        <td>{{film.Note}}/5</td>    
-                                        
+                                            <td>{{genre.genre}}</td>
+                                        {% endfor %}
+                                        <td>
+                                            {% for acteur in film.fkActeur %}
+                                                {{acteur.prenom}}
+                                                {{acteur.nom}}
+                                                |
+                                            {% endfor %}
+                                        </td>
+
+                                        <td>{{film.Note}}/5</td>
+
                                     </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                            
-                        </div>
-                        </div>
+                                {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
-                </div>   
+                </div>
+           
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalTitle">Ajout d'un Film</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+<script>
 
+$('#exampleModal').on('shown.bs.modal', function () {
+var modal = $(this);
+$.ajax('{{ path("film_nouveau") }}', {
+success: function (data) {
+    modal.find('.modal-body').html(data);
+}
+});
+});
+
+$(document).on('submit', 'form', function (e) {
+// il est impératif de commencer avec cette méthode qui va empêcher le navigateur d'envoyer le formulaire lui-même
+e.preventDefault();
+
+$form = $(e.target);
+modal = $('#exampleModal');
+
+var title = $('#article_title').val();
+
+var $submitButton = $form.find(':submit');
+$submitButton.html('<i class="fas fa-spinner fa-pulse"></i>');
+$submitButton.prop('disabled', true);
+
+// ajaxSubmit du plugin ajaxForm nécessaire pour l'upload de fichier
+$form.ajaxSubmit({
+type: 'post',
+success: function (data) {
+    if (data == 'ok') {
+        $('ul').append('<li>' + title + '</li>');
+        modal.modal('toggle');
+    } else {
+        modal.find('.modal-body').html(data);
+    }
+},
+error: function (jqXHR, status, error) {
+    $submitButton.html(button.data('label'));
+    $submitButton.prop('disabled', false);
+}
+});
+});
+</script>
 {% endblock %}

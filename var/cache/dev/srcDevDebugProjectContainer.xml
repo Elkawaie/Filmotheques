@@ -4390,6 +4390,12 @@
         <argument key="acteurRepository" type="service" id="App\Repository\ActeurRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.OLaif_L" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.xkmHvPK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4439,9 +4445,10 @@
         <argument key="realisateur" type="service" id=".errored..service_locator.WehOvbw.App\Entity\Realisateur"/>
       </argument>
     </service>
-    <service id=".service_locator.1q4rrfa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Ak7ZYvA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\ActeurController::ajoutAjax" type="service" id=".service_locator.OLaif_L"/>
         <argument key="App\Controller\ActeurController::delete" type="service" id=".service_locator.xkmHvPK"/>
         <argument key="App\Controller\ActeurController::edit" type="service" id=".service_locator.xkmHvPK"/>
         <argument key="App\Controller\ActeurController::index" type="service" id=".service_locator.98aaGn8"/>
@@ -4459,6 +4466,7 @@
         <argument key="App\Controller\RealisateurController::edit" type="service" id=".service_locator.WehOvbw"/>
         <argument key="App\Controller\RealisateurController::index" type="service" id=".service_locator.0hhL6ra"/>
         <argument key="App\Controller\RealisateurController::show" type="service" id=".service_locator.WehOvbw"/>
+        <argument key="App\Controller\ActeurController:ajoutAjax" type="service" id=".service_locator.OLaif_L"/>
         <argument key="App\Controller\ActeurController:delete" type="service" id=".service_locator.xkmHvPK"/>
         <argument key="App\Controller\ActeurController:edit" type="service" id=".service_locator.xkmHvPK"/>
         <argument key="App\Controller\ActeurController:index" type="service" id=".service_locator.98aaGn8"/>
@@ -4722,7 +4730,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.1q4rrfa"/>
+      <argument type="service" id=".service_locator.Ak7ZYvA"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -5141,7 +5149,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.1q4rrfa"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Ak7ZYvA"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id=".service_locator.AoifO_3" alias=".2_ServiceLocator~weWq67z" public="false"/>

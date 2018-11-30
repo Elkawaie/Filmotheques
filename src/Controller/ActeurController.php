@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Common\Persistence\ObjectManager;
+
 
 /**
  * @Route("/acteur")
@@ -40,8 +42,34 @@ class ActeurController extends AbstractController
             return $this->redirectToRoute('acteur_index');
         }
 
-        return $this->render('acteur/new.html.twig', [
+       return $this->render('acteur/new.html.twig', [
             'acteur' => $acteur,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * Ajout d'un acteur avec Ajax
+     *
+     * @Route("/nouveau", name="acteur_nouveau", condition="request.isXmlHttpRequest()")
+     * @return Response
+     */
+    public function ajoutAjax(Request $request, ObjectManager $manager)
+    {
+        $acteur = new Acteur();
+        $form = $this->createForm(ActeurType::class, $acteur, array(
+            'action' => $this->generateUrl($request->get('_route'))
+        ));
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($acteur);
+            $em->flush();
+
+            return new Response('Yeah !');
+        }
+        return $this->render('acteur/_nouveau.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -87,4 +115,5 @@ class ActeurController extends AbstractController
 
         return $this->redirectToRoute('acteur_index');
     }
+    
 }

@@ -22,11 +22,13 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
             self::$declaredRoutes = array(
         'acteur_index' => array(array(), array('_controller' => 'App\\Controller\\ActeurController::index'), array(), array(array('text', '/acteur/')), array(), array()),
         'acteur_new' => array(array(), array('_controller' => 'App\\Controller\\ActeurController::new'), array(), array(array('text', '/acteur/new')), array(), array()),
+        'acteur_nouveau' => array(array(), array('_controller' => 'App\\Controller\\ActeurController::ajoutAjax'), array(), array(array('text', '/acteur/nouveau')), array(), array()),
         'acteur_show' => array(array('id'), array('_controller' => 'App\\Controller\\ActeurController::show'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/acteur')), array(), array()),
         'acteur_edit' => array(array('id'), array('_controller' => 'App\\Controller\\ActeurController::edit'), array(), array(array('text', '/edit'), array('variable', '/', '[^/]++', 'id'), array('text', '/acteur')), array(), array()),
         'acteur_delete' => array(array('id'), array('_controller' => 'App\\Controller\\ActeurController::delete'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/acteur')), array(), array()),
         'film_index' => array(array(), array('_controller' => 'App\\Controller\\FilmController::index'), array(), array(array('text', '/film/')), array(), array()),
         'film_new' => array(array(), array('_controller' => 'App\\Controller\\FilmController::new'), array(), array(array('text', '/film/new')), array(), array()),
+        'film_nouveau' => array(array(), array('_controller' => 'App\\Controller\\FilmController::AjoutFilmAjax'), array(), array(array('text', '/film/nouveau')), array(), array()),
         'film_show' => array(array('id'), array('_controller' => 'App\\Controller\\FilmController::show'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/film')), array(), array()),
         'film_edit' => array(array('id'), array('_controller' => 'App\\Controller\\FilmController::edit'), array(), array(array('text', '/edit'), array('variable', '/', '[^/]++', 'id'), array('text', '/film')), array(), array()),
         'film_delete' => array(array('id'), array('_controller' => 'App\\Controller\\FilmController::delete'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/film')), array(), array()),

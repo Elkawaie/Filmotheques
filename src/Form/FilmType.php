@@ -21,32 +21,39 @@ class FilmType extends AbstractType
             ->add('description')
             ->add('fkActeur', EntityType::class, array(
                 'class' => Acteur::class ,
+                'label' => 'Acteur :',
+                'label_attr' => array('class' => 'titreActeur'),
                 'choice_label' => function ($acteur){
+                    
                     return $acteur->getNom();
                 },
                 'multiple' => true,
-                'expanded' => false,     
+                'expanded' => true,     
                 'mapped' => false,
             ))
             ->add('fkGenre', EntityType::class, array(
                 'class' => Genre::class ,
+                'label' => 'Genre :',
+                'label_attr' => array('class' => 'titreGenre'),
                 'choice_label' => function($genre){
                     return $genre->getGenre();
                 },
                 'multiple' => true,
-                'expanded' => false,
+                'expanded' => true,
                 'mapped' => false,
             ))
             ->add('fkRealisateur', EntityType::class, array(
                 'class' => Realisateur::class ,
+                'label' => 'Réalisateur :',
+                'label_attr' => array('class' => 'titreReal'),
                 'choice_label' => function ($realisateur){
                     return $realisateur->getNom();
                 },
                 'multiple' => true,
-                'expanded' => false,
+                'expanded' => true,
                 'mapped' => false,
-            ))
-        ;
+            ));
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -69,17 +69,14 @@ class __TwigTemplate_0cac93bddab97fe34684f6d5690cdcca24094636143968e0fca9ee12075
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Create new Film</h1>
+        echo "   
 
     ";
         // line 8
         echo twig_include($this->env, $context, "film/_form.html.twig");
         echo "
 
-    <a href=\"";
-        // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("film_index");
-        echo "\">back to list</a>
+    
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -101,7 +98,7 @@ class __TwigTemplate_0cac93bddab97fe34684f6d5690cdcca24094636143968e0fca9ee12075
 
     public function getDebugInfo()
     {
-        return array (  81 => 10,  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  76 => 8,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -111,11 +108,11 @@ class __TwigTemplate_0cac93bddab97fe34684f6d5690cdcca24094636143968e0fca9ee12075
 {% block title %}New Film{% endblock %}
 
 {% block body %}
-    <h1>Create new Film</h1>
+   
 
     {{ include('film/_form.html.twig') }}
 
-    <a href=\"{{ path('film_index') }}\">back to list</a>
+    
 {% endblock %}
 ", "film/new.html.twig", "D:\\projet\\Filmotheques\\templates\\film\\new.html.twig");
     }
