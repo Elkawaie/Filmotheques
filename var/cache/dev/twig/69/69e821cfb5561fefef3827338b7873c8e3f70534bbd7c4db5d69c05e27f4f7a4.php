@@ -134,10 +134,7 @@ class __TwigTemplate_458463c79ed9a6c358f4ab310fea7f81ce5a53d2559db1b115aa2e19943
         echo "        </tbody>
     </table>
 
-    <a href=\"";
-        // line 38
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("film_new");
-        echo "\">Create new</a>
+    
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -159,7 +156,7 @@ class __TwigTemplate_458463c79ed9a6c358f4ab310fea7f81ce5a53d2559db1b115aa2e19943
 
     public function getDebugInfo()
     {
-        return array (  139 => 38,  134 => 35,  125 => 31,  116 => 27,  112 => 26,  107 => 24,  103 => 23,  99 => 22,  95 => 21,  92 => 20,  87 => 19,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  134 => 35,  125 => 31,  116 => 27,  112 => 26,  107 => 24,  103 => 23,  99 => 22,  95 => 21,  92 => 20,  87 => 19,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -201,7 +198,7 @@ class __TwigTemplate_458463c79ed9a6c358f4ab310fea7f81ce5a53d2559db1b115aa2e19943
         </tbody>
     </table>
 
-    <a href=\"{{ path('film_new') }}\">Create new</a>
+    
 {% endblock %}
 ", "film/index.html.twig", "D:\\projet\\Filmotheques\\templates\\film\\index.html.twig");
     }

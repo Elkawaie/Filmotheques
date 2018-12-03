@@ -85,6 +85,18 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
         // line 32
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("dist/js/sb-admin-2.js"), "html", null, true);
         echo "\"></script>
+        <script src=\"";
+        // line 33
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://code.jquery.com/jquery-3.3.1.min.js"), "html", null, true);
+        echo "\" integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\" crossorigin=\"anonymous\"></script>
+        <script src=\"";
+        // line 34
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm\" crossorigin=\"anonymous\"></script>
+        <script src=\"";
+        // line 35
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"), "html", null, true);
+        echo "\"></script>
 
         <script>
             \$(document).ready(function () {
@@ -216,7 +228,7 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
 
     public function getDebugInfo()
     {
-        return array (  191 => 23,  174 => 21,  162 => 17,  158 => 16,  154 => 15,  150 => 14,  146 => 13,  142 => 12,  138 => 11,  134 => 10,  131 => 9,  122 => 8,  105 => 6,  86 => 32,  82 => 31,  78 => 30,  74 => 29,  70 => 28,  66 => 27,  62 => 26,  58 => 24,  56 => 23,  53 => 22,  51 => 21,  47 => 19,  45 => 8,  42 => 7,  40 => 6,  33 => 1,);
+        return array (  203 => 23,  186 => 21,  174 => 17,  170 => 16,  166 => 15,  162 => 14,  158 => 13,  154 => 12,  150 => 11,  146 => 10,  143 => 9,  134 => 8,  117 => 6,  98 => 35,  94 => 34,  90 => 33,  86 => 32,  82 => 31,  78 => 30,  74 => 29,  70 => 28,  66 => 27,  62 => 26,  58 => 24,  56 => 23,  53 => 22,  51 => 21,  47 => 19,  45 => 8,  42 => 7,  40 => 6,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -253,6 +265,9 @@ class __TwigTemplate_3d32c9fa5b871566cb37e6c9fc1f894a4e442dab43c7edbab0927c81f52
         <script src=\"{{asset('vendor/datatables-plugins/dataTables.bootstrap.min.js')}}\"></script>
         <script src=\"{{asset('vendor/datatables-responsive/dataTables.responsive.js')}}\"></script>
         <script src=\"{{asset('dist/js/sb-admin-2.js')}}\"></script>
+        <script src=\"{{asset('https://code.jquery.com/jquery-3.3.1.min.js')}}\" integrity=\"sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=\" crossorigin=\"anonymous\"></script>
+        <script src=\"{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js')}}\" integrity=\"sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm\" crossorigin=\"anonymous\"></script>
+        <script src=\"{{asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js')}}\"></script>
 
         <script>
             \$(document).ready(function () {

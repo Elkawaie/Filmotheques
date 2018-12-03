@@ -65,21 +65,19 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             case '/acteur/nouveau':
                 // acteur_nouveau
                 if (($request = $request ?? $this->request ?: $this->createRequest($pathinfo)) && $request->isXmlHttpRequest()) {
-                    return array('_route' => 'acteur_nouveau', '_controller' => 'App\\Controller\\ActeurController::ajoutAjax');
+                    return array('_route' => 'acteur_nouveau', '_controller' => 'App\\Controller\\ActeurController::new');
                 }
                 break;
             case '/film/nouveau':
                 // film_nouveau
                 if (($request = $request ?? $this->request ?: $this->createRequest($pathinfo)) && $request->isXmlHttpRequest()) {
-                    return array('_route' => 'film_nouveau', '_controller' => 'App\\Controller\\FilmController::AjoutFilmAjax');
+                    return array('_route' => 'film_nouveau', '_controller' => 'App\\Controller\\FilmController::new');
                 }
                 break;
             default:
                 $routes = array(
                     '/acteur/' => array(array('_route' => 'acteur_index', '_controller' => 'App\\Controller\\ActeurController::index'), null, array('GET' => 0), null),
-                    '/acteur/new' => array(array('_route' => 'acteur_new', '_controller' => 'App\\Controller\\ActeurController::new'), null, array('GET' => 0, 'POST' => 1), null),
                     '/film/' => array(array('_route' => 'film_index', '_controller' => 'App\\Controller\\FilmController::index'), null, array('GET' => 0), null),
-                    '/film/new' => array(array('_route' => 'film_new', '_controller' => 'App\\Controller\\FilmController::new'), null, array('GET' => 0, 'POST' => 1), null),
                     '/genre/' => array(array('_route' => 'genre_index', '_controller' => 'App\\Controller\\GenreController::index'), null, array('GET' => 0), null),
                     '/genre/new' => array(array('_route' => 'genre_new', '_controller' => 'App\\Controller\\GenreController::new'), null, array('GET' => 0, 'POST' => 1), null),
                     '/' => array(array('_route' => 'index', '_controller' => 'App\\Controller\\IndexController::index'), null, null, null),

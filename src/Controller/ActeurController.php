@@ -25,28 +25,7 @@ class ActeurController extends AbstractController
         return $this->render('acteur/index.html.twig', ['acteurs' => $acteurRepository->findAll()]);
     }
 
-    /**
-     * @Route("/new", name="acteur_new", methods="GET|POST")
-     */
-    public function new(Request $request): Response
-    {
-        $acteur = new Acteur();
-        $form = $this->createForm(ActeurType::class, $acteur);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($acteur);
-            $em->flush();
-
-            return $this->redirectToRoute('acteur_index');
-        }
-
-       return $this->render('acteur/new.html.twig', [
-            'acteur' => $acteur,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * Ajout d'un acteur avec Ajax
@@ -54,16 +33,17 @@ class ActeurController extends AbstractController
      * @Route("/nouveau", name="acteur_nouveau", condition="request.isXmlHttpRequest()")
      * @return Response
      */
-    public function ajoutAjax(Request $request, ObjectManager $manager)
+    public function new(Request $request, ObjectManager $manager)
     {
         $acteur = new Acteur();
         $form = $this->createForm(ActeurType::class, $acteur, array(
             'action' => $this->generateUrl($request->get('_route'))
         ));
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($acteur);
             $em->flush();
 
