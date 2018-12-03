@@ -47,7 +47,7 @@ class ActeurController extends AbstractController
             $em->persist($acteur);
             $em->flush();
 
-            return new Response('Yeah !');
+            return new Response('Un nouvel acteur a était ajouté.');
         }
         return $this->render('acteur/_nouveau.html.twig', [
             'form' => $form->createView(),

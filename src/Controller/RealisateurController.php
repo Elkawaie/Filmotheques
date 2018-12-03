@@ -29,7 +29,9 @@ class RealisateurController extends AbstractController
     public function new(Request $request): Response
     {
         $realisateur = new Realisateur();
-        $form = $this->createForm(RealisateurType::class, $realisateur);
+        $form = $this->createForm(RealisateurType::class, $realisateur, array(
+            'action' => $this->generateUrl($request->get('_route'))
+        ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -37,7 +39,7 @@ class RealisateurController extends AbstractController
             $em->persist($realisateur);
             $em->flush();
 
-            return $this->redirectToRoute('realisateur_index');
+            return new Response('Un nouveau réalisateur a était ajouté.');
         }
 
         return $this->render('realisateur/new.html.twig', [

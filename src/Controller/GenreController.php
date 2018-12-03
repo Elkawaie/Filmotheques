@@ -29,7 +29,9 @@ class GenreController extends AbstractController
     public function new(Request $request): Response
     {
         $genre = new Genre();
-        $form = $this->createForm(GenreType::class, $genre);
+        $form = $this->createForm(GenreType::class, $genre, array(
+            'action' => $this->generateUrl($request->get('_route'))
+        ));
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -37,7 +39,7 @@ class GenreController extends AbstractController
             $em->persist($genre);
             $em->flush();
 
-            return $this->redirectToRoute('genre_index');
+            return new Response('Un nouveau genre a était ajouté.');
         }
 
         return $this->render('genre/new.html.twig', [

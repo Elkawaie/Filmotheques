@@ -24,7 +24,7 @@ class Genre
     private $genre;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="fkGenre", cascade={"persist", "remove", "refresh"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Film", mappedBy="fkGenre", cascade={"persist", "refresh"})
      */
     private $fkFilm;
 

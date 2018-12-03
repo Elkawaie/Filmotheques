@@ -84,7 +84,7 @@ class FilmController extends AbstractController
             
             $em->flush();
 
-            return new Response('Yeah ! c\'tout bon nique sa mére !');
+            return new Response('Le film a bien était ajouté !');
         }
 
         return $this->render('film/new.html.twig', [
