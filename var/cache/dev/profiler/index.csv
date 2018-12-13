@@ -2954,3 +2954,16 @@ c273c1,127.0.0.1,GET,http://127.0.0.1:8000/,1544380482,,200
 5cd065,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1544380483,,404
 ac2637,127.0.0.1,GET,http://127.0.0.1:8000/film/nouveau,1544380488,,200
 6194ea,127.0.0.1,GET,http://127.0.0.1:8000/,1544382360,,200
+b38252,127.0.0.1,GET,http://127.0.0.1:8000/,1544729115,,200
+abfed0,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729132,d69dd1,200
+d69dd1,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729132,,404
+1a7c74,127.0.0.1,GET,http://127.0.0.1:8000/,1544729385,,200
+1b34ca,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729385,223e9c,200
+223e9c,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729385,,404
+62d7ab,127.0.0.1,GET,http://127.0.0.1:8000/,1544729397,,200
+c70fbd,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729397,f57482,200
+f57482,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729398,,404
+c35139,127.0.0.1,GET,http://127.0.0.1:8000/,1544729418,,200
+43c6c2,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729418,bbef12,200
+bbef12,127.0.0.1,GET,http://127.0.0.1:8000/vendor/bootstrap/css/bootstrap.min.css.map,1544729418,,404
+8a93b9,127.0.0.1,GET,http://127.0.0.1:8000/film/nouveau,1544729439,,200

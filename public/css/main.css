@@ -94,6 +94,11 @@ tr, th{
 .dataTables_info{
     color: #d16666;
 }
+
+.dataTables_paginate a{
+    color: #d16666 !important;
+    border-color: black !important;
+}
 /**********
 Css des Modals Formulaire
 ***********/

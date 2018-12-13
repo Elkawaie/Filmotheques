@@ -13,36 +13,40 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        $faker = \Faker\Factory::create('fr_FR');
 
         for($i = 0; $i <= 10; $i++){
             $film = new Film();
-            $acteur = new Acteur();
+           
+            $film->setTitre($faker->sentence())
+                 ->setDescription($faker->paragraph())
+                 ->setNote(rand(1,5));
+            for($k = 0; $k <= 3; $k++){
+             $acteur = new Acteur();
+             
+             $acteur->setNom($faker->firstName())
+                    ->setPrenom($faker->lastName());
+
+             $manager->persist($acteur);
+
+             $film->addFkActeur($acteur);
+            }
             $genre = new Genre();
-            $real = new Realisateur();
-            // Fixtures des Réalisateurs
-            $real->setNom("Nom du Réalisateur n° $i")
-                 ->setPrenom("Prenom du Réalisateur n° $i");
-            // Fixtures des Genres
-            $genre->setGenre("Genre n° $i");
-            // Fixtures des Acteurs
-            $acteur->setNom("Nom de l'acteur n° $i")
-                   ->setPrenom("Prénom de l'acteur n° $i");
-            // Fixtures des Films
-            $film->setTitre("Titre du film n° $i")
-                 ->setDescription("Description du Film n° $i")
-                 ->setNote(rand(1,5))
-                 ->addFkActeur($acteur)
-                 ->addFkGenre($genre)
-                 ->addFkRealisateur($real);
-            // Ajouts des relations
-            $real->addFkFilm($film);
-            $acteur->addFkFilm($film);
-            $genre->addFkFilm($film);
-            
-            $manager->persist($film);
-            $manager->persist($acteur);
+            $genre->setGenre($faker->sentence(1));
+
             $manager->persist($genre);
+            $film->addFkGenre($genre);
+            
+            $real = new Realisateur();
+            $real->setNom($faker->firstName())
+                 ->setPrenom($faker->lastName());
+            
             $manager->persist($real);
+
+            $film->addFkRealisateur($real);
+
+            $manager->persist($film);    
+           
             
         }
 
