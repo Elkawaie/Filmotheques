@@ -80,8 +80,14 @@ h2{
     flex-direction: column;
     
 }
+ 
+.panel-body .row .button{
+    display: flex !important;
+    
+}
+
 .new{
-    align-self: flex-end;
+    margin: auto !important;
 }
 
 
